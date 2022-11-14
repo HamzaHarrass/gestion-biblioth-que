@@ -1,16 +1,6 @@
+*{}
+
 body{
-  background-image: linear-gradient(#000000 60%, #533483 100%);
-  background-position: right bottom;
-  background-attachment: fixed;
-}
-#button{
-    background-color: #FF5C01;
-    
-}
-#title-Online ,#title-Library{
-    font-size: 120px;
-    font-family: garamond;
-}
-#title-Library{
-    margin-left: 120px;
+    background-color: rgb(0, 0, 0);
+    /* background: url('https://i.pinimg.com/originals/30/de/e5/30dee52721e2cf40b4fbfa4d229eb76a.jpg') no-repeat center center fixed; */
 }
