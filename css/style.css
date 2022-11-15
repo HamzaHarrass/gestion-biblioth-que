@@ -1,5 +1,17 @@
 body{
 background-image: url('/image/6971567.jpg');
-background-position: right bottom;
+background-size: cover;
+background-attachment: scroll;
+background-repeat: no-repeat;
 background-attachment: fixed;
+}
+#image{
+    background-size: 1400px;
+background-attachment: scroll;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+#PragraphSingUp{
+    font-size: 60px;
+    font-family: 'Times New Roman', Times, serif;
 }
