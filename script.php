@@ -10,7 +10,7 @@
         $email = mysqli_real_escape_string($conn,$_POST['email']);
         $pass = $_POST['password'];
         $pasrepeat = $_POST['repeat'];
-        $select = "SELECT * FROM user_from WHERE email = '$email' && pasword ='$pass' ";
+        $select = "SELECT * FROM user_from WHERE email = '$email'";
         $result = mysqli_query($conn , $select);
     
         if(mysqli_num_rows($result)> 0){
