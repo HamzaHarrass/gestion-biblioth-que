@@ -28,16 +28,17 @@
       <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div id="carouselImage" class="carousel-inner p-auto">
           <div class="carousel-item active">
-            <img src="./image/books/015c3cb6f5ddd53513c635fde1f85c57.jpg" class="d-block w-25" alt="...">
+            <img src="./image/books/c2eecfa30a134e897f4e832e0c89cb021b900fb6_dqfbdbdfqk.jpg" class="d-block" alt="...">
+            <!-- <img src="./image/books/9b2dfdf1b4967bd6ed0d9219f21b3440 (1).jpg" class="d-block w-25 me-5" alt="...">
+            <img src="./image/books/9b2dfdf1b4967bd6ed0d9219f21b3440.jpg" class="d-block w-25 me-5" alt="..."> -->
+          </div>
+          <div id="image-carousel" class="carousel-item">
+            <img src="./image/books/13651b867e15bcb1826f112f5a7695e322fb7969_sqvdqsdv.jpg" class="d-block" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="./image/books/948bfb274921a76cb28b9591dd04cb4b.jpg" class="d-block w-25" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="./image/books/164de08e6bedcf2098609e945f190d25.jpg" class="d-block w-25" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="./image/books/e61d263856dd04d7676135e2fe975291.jpg" class="d-block w-25" alt="...">
+            <img src="./image/books/3a63b5d69a04de1c55e6edc2f65108cda37ff367_kpnoo .jpg" class="d-block " alt="...">
+            <!-- <img src="./image/books/e2ab495265acab7a5937e5200a3da4e2.jpg" class="d-block w-25 me-5" alt="...">
+            <img src="./image/books/ed8f787effb117ff3ae4dca41ccef732.jpg" class="d-block w-25 me-5" alt="..."> -->
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
@@ -50,6 +51,7 @@
         </button>
       </div>
 
+      
 
 
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
