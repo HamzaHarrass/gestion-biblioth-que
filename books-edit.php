@@ -47,12 +47,16 @@ include('script.php');
                             {
                                 $book = mysqli_fetch_array($query_run);
                                 ?>
-                                <form action="script.php" method="POST">
+                                <form enctype="multipart/form-data" action="script.php" method="POST">
                                     <input type="hidden" name="book_id" value="<?= $book['id']; ?>">
+                                    <div class="mb-3">
+                                      <img src="image/books/<?=$book['image'];?>" class="w-25 mb-3" alt="">
+                                      <input type="file" name="image" value="" class="  form-control">
+                                     </div>
 
                                     <div class="mb-3">
                                         <label>book Name</label>
-                                        <input type="text" name="name" value="<?=$book['name'];?>" class="form-control">
+                                        <input type="text" name="name" value="<?=$book['name_book'];?>" class="form-control">
                                     </div>
                                     <div class="mb-3">
                                         <label>auteur</label>
@@ -60,17 +64,35 @@ include('script.php');
                                     </div>
                                     <div class="mb-3">
                                         <label>description</label>
-                                        <textarea type="text" name="description" value="<?=$book['deccription'];?>" class="form-control" id="" rows="5"></textarea>
+                                        <textarea type="text" name="description" class="form-control" id="" rows="5"><?=$book['description'];?></textarea>
                                     </div>
+                                    <div class="mb-3">
+                            <label for="genres" class="col-form-label text-black">genres</label>
+					     	<select class="form-select " name="genres" aria-label="Default select example" id="genres" value="<?= $book['genres'];?>">
+						    	<option value="" selected></option>
+						     	<option value="1">Action</option>
+						    	<option value="2">Classic</option>
+						    	<option value="3">Fantasy</option>
+						    	<option value="4">Horror</option>
+						    	<option value="5">Literary Fiction</option>
+						    	<option value="6">Romance</option>
+						    	<option value="7">Short Stories</option>
+						    	<option value="8">History</option>
+						    </select>
+                            </div>
                                     <div class="mb-3">
                                         <label>prix</label>
                                         <input type="text" name="prix" value="<?=$book['prix'];?>" class="form-control">
                                     </div>
-                                    <div class="mb-3">
-                                        <button type="submit" name="update_book" class="btn btn-primary">
-                                            Update book
+
+                                    <div class=" mb-3">
+                                        <button type="submit" name="update_book" class="btn btn-primary  d-flex justify-content-center">
+                                        <lord-icon src="https://cdn.lordicon.com/bxxnzvfm.json"  trigger="hover"style="width:30px;height:30px">
+                                     </lord-icon>Update book
                                         </button>
                                     </div>
+                                   
+                              
 
                                 </form>
                                 <?php
@@ -86,6 +108,8 @@ include('script.php');
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.lordicon.com/qjzruarw.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

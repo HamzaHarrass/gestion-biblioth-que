@@ -41,7 +41,7 @@ include('script.php');
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="script.php" method="POST">
+                        <form enctype="multipart/form-data" action="script.php" method="POST">
 
                             <div class="mb-3">
                                 <label>book Name</label>
@@ -56,11 +56,29 @@ include('script.php');
                                 <textarea type="text" name="description" class="form-control" id=""  rows="5"></textarea>
                             </div>
                             <div class="mb-3">
+                            <label for="genres" class="col-form-label text-black">genres</label>
+					     	<select class="form-select " name="genres" aria-label="Default select example" id="genres">
+						    	<option value="" selected>Please select</option>
+						     	<option value="1">Action</option>
+						    	<option value="2">Classic</option>
+						    	<option value="3">Fantasy</option>
+						    	<option value="4">Horror</option>
+						    	<option value="5">Literary Fiction</option>
+						    	<option value="6">Romance</option>
+						    	<option value="7">Short Stories</option>
+						    	<option value="8">History</option>
+						    </select>
+                            </div>
+                            <div class="mb-3">
                                 <label>prix</label>
                                 <input type="text" name="prix" class="form-control">
                             </div>
                             <div class="mb-3">
-                                <button type="submit" name="save_book" class="btn btn-primary">Save Student</button>
+                                <label>image</label>
+                                <input type="file" name="image" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" name="save_book" class="btn btn-primary">Save book</button>
                             </div>
 
                         </form>

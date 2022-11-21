@@ -20,11 +20,17 @@
 <body>
      <!-- BEGIN #app -->
      <nav class="navbar " >
-        <a class="navbar-brandc text-white text-decoration-none ms-4  fs-1 " href="#">
+        <a class="navbar-brandc text-white text-decoration-none ms-4 fs-2 " href="#">
           <img src="./image/open-book.png" width="50" height="40" class="d-inline-block align-top  mt-1 " alt="">
           library </a>
       </nav>
 
+      <nav class="ms-5 d" style="--bs-breadcrumb-divider: '>'; " aria-label="breadcrumb">
+  <ol class="breadcrumb ">
+    <li class="breadcrumb-item active">Home</li>
+    <li class="breadcrumb-item " aria-current="page"><a class="text-white text-decoration-none" href="ViewAllBooks.php">library</a></li>
+  </ol>
+</nav>
 
       <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators ">

@@ -44,7 +44,7 @@ include('config.php');
                                 
                                     <div class="mb-3">
                                         <p class="">
-                                            <?=$book['name'];?>
+                                            <?=$book['nom'];?>
                                         </p>
                                     </div>
                                     <div class="mb-3">
@@ -54,7 +54,7 @@ include('config.php');
                                     </div>
                                     <div class="mb-3">
                                         <p class="">
-                                            <?=$book['deccription'];?>
+                                            <?=$book['description'];?>
                                         </p>
                                     </div>
                                     <div class="mb-3">

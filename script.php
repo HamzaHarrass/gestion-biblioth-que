@@ -9,18 +9,18 @@ include('./config.php');
 if (isset($_POST['register'])){
     $name = mysqli_real_escape_string($conn,$_POST['name']);
     $email = mysqli_real_escape_string($conn,$_POST['email']);
-    $pass = $_POST['password'];
+    $pass =  $_POST['password'];
     $pasrepeat = $_POST['repeat'];
-    $select = "SELECT * FROM user_from WHERE email = '$email'";
+    $select = "SELECT * FROM admin WHERE email = '$email'";
     $result = mysqli_query($conn , $select);
 
-    if(mysqli_num_rows($result)> 0){
+    if(mysqli_num_rows($result) > 0){
       $error[] = 'user already exist !! ';
     }else{
       if($pass != $pasrepeat){
           $error[] = 'password not matched !!';
     }else{
-        $insert ="INSERT INTO user_from(name,email,pasword) VALUES ('$name','$email','$pass')";
+        $insert ="INSERT INTO admin(name_admin,email,password) VALUES ('$name','$email','$pass')";
         mysqli_query($conn , $insert);
         header('location:index.php');
       }
@@ -33,11 +33,13 @@ if (isset($_POST['sing'])){
   $email = mysqli_real_escape_string($conn,$_POST['email']);
   $pass = $_POST['password'];
 
-  $select = "SELECT * FROM user_from WHERE email = '$email' && pasword ='$pass' ";
+  $select = "SELECT * FROM admin WHERE email = '$email' && password ='$pass' ";
   $result = mysqli_query($conn , $select);
 
   if(mysqli_num_rows($result)> 0){
-        header('location:Sing up.php');
+      $row = mysqli_fetch_assoc($result);    /* save data as array assosaitive for admin */
+      $_SESSION['adminId'] = $row['id'];     /* store id admin in golbal variable (session = super global) */
+        header('location:dashbord.php');
         die();
     } else {
       header('location:./index.php');
@@ -66,9 +68,16 @@ if(isset($_POST['update_book']))
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $auteur = mysqli_real_escape_string($conn, $_POST['auteur']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $genre = mysqli_real_escape_string($conn, $_POST['genres']);
     $prix = mysqli_real_escape_string($conn, $_POST['prix']);
+    $image =  $_FILES['image']["name"];
+    $id = $_SESSION['adminId'];
 
-    $query = "UPDATE books SET name='$name', auteur='$auteur', deccription='$description', prix='$prix' WHERE id='$book_id' ";
+    $target= "image/books/".$image;   /*  crete la destination de l'image  */
+    $tmp_image =  $_FILES['image']["tmp_name"]; /*  copie le origin nom de l'image et poster dans la destination de l'image */
+   move_uploaded_file($tmp_image,$target);
+
+    $query = "UPDATE books SET name_book='$name', auteur='$auteur', description='$description',id_genres=$genre, prix='$prix',image='$image',id_admin='$id' WHERE id='$book_id' ";
     $query_run = mysqli_query($conn, $query);
             header("Location: ViewAllBooks.php");
 
@@ -84,12 +93,22 @@ if(isset($_POST['save_book']))
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $auteur = mysqli_real_escape_string($conn, $_POST['auteur']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $genre = mysqli_real_escape_string($conn, $_POST['genres']);
     $prix = mysqli_real_escape_string($conn, $_POST['prix']);
+    $image =  $_FILES['image']["name"];
+    $id = $_SESSION['adminId'];
 
-    $query = "INSERT INTO books (name,auteur,deccription,prix) VALUES ('$name','$auteur','$description','$prix')";
+    $target= "image/books/".$image;   /*  crete la destination de l'image  */
+    $tmp_image =  $_FILES['image']["tmp_name"]; /*  copie le origin nom de l'image et poster dans la destination de l'image */
+   move_uploaded_file($tmp_image,$target);
+
+    $query = "INSERT INTO books (name_book,auteur,description,id_genres,prix,image , id_admin) VALUES ('$name','$auteur','$description','$genre','$prix','$image' , '$id')";
+//     var_dump($query);
+// die;
     $query_run = mysqli_query($conn, $query);
             header("Location: ViewAllBooks.php");
 
 }
 
-?>
+// unset($_session['hamza']);
+// session_destroy();
