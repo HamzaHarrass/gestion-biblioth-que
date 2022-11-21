@@ -66,7 +66,7 @@
     
                       <div class="d-flex flex-row align-items-center mb-4">
                         <div class="form-outline flex-fill mb-0">
-                          <input type="email" name="email" id="form3Example3c" class="form-control" required placeholder="Your Email"/>
+                          <input type="email" name="email" id="form3Example3c" class="form-control" required placeholder="Your Email" />
                         </div>
                       </div>
     
@@ -78,7 +78,7 @@
     
                       <div class="d-flex flex-row align-items-center  mb-4">
                         <div class="form-outline flex-fill  ">
-                          <input type="password" name="repeat" id="repeatpassword" class="form-control" required placeholder="Repeat your password" data-parsley-equalto="#password"/>
+                          <input type="password" name="repeat" id="repeatpassword" class="form-control" required placeholder="Repeat your password" data-parsley-equalto="#password" data-parsley-length="[8, 20]"/>
                         </div>
                       </div>
 
