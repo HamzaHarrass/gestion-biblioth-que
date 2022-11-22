@@ -2,6 +2,9 @@
 // session_start();
 include('config.php');
 include('script.php');
+if(!isset($_SESSION['adminId'])){
+    header('location: Error.php');
+  }else{
 ?>
 
 <!doctype html>
@@ -64,20 +67,20 @@ include('script.php');
                                     </div>
                                     <div class="mb-3">
                                         <label>description</label>
-                                        <textarea type="text" name="description" class="form-control" id="" rows="5"><?=$book['description'];?></textarea>
+                                        <textarea type="text" name="description" class="form-control" id="" rows="5"><?=$book['description'], $book['id_genres'] ;?></textarea>
                                     </div>
                                     <div class="mb-3">
                             <label for="genres" class="col-form-label text-black">genres</label>
-					     	<select class="form-select " name="genres" aria-label="Default select example" id="genres" value="<?= $book['genres'];?>">
-						    	<option value="" selected></option>
-						     	<option value="1">Action</option>
-						    	<option value="2">Classic</option>
-						    	<option value="3">Fantasy</option>
-						    	<option value="4">Horror</option>
-						    	<option value="5">Literary Fiction</option>
-						    	<option value="6">Romance</option>
-						    	<option value="7">Short Stories</option>
-						    	<option value="8">History</option>
+					     	<select class="form-select " name="genres" aria-label="Default select example" id="genres">
+						    	<!-- <option value="" selected></option> -->
+						     	<option value="1" <?php if($book['id_genres'] == 1){ echo 'selected';} ?>>Action</option>
+						    	<option value="2" <?php if($book['id_genres'] == 2){ echo 'selected';} ?>>Classic</option>
+						    	<option value="3" <?php if($book['id_genres'] == 3){ echo 'selected';} ?>>Fantasy</option>
+						    	<option value="4" <?php if($book['id_genres'] == 4){ echo 'selected';} ?>>Horror</option>
+						    	<option value="5" <?php if($book['id_genres'] == 5){ echo 'selected';} ?>>Literary Fiction</option>
+						    	<option value="6" <?php if($book['id_genres'] == 6){ echo 'selected';} ?>>Romance</option>
+						    	<option value="7" <?php if($book['id_genres'] == 7){ echo 'selected';} ?>>Short Stories</option>
+						    	<option value="8" <?php  if($book['id_genres'] == 8){ echo 'selected';} ?>>History</option>
 						    </select>
                             </div>
                                     <div class="mb-3">
@@ -114,3 +117,6 @@ include('script.php');
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+<?php
+  }
+?>

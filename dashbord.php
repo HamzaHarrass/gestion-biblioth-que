@@ -1,3 +1,11 @@
+<?php
+include('config.php');
+include('script.php');
+if(!isset($_SESSION['adminId'])){
+  header('location: Error.php');
+}else{
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,6 +40,8 @@
   </ol>
 </nav>
 
+             <h1 class="d-flex justify-content-center ">hay ,<?=$_SESSION['name'] ?></h1>          
+
       <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators ">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -59,8 +69,39 @@
   </button>
 </div>
 
+<section class=" ">
+  <div class="row m-3 d-flex justify-content-center row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-5 ">
+<?php  
+        $query = "SELECT books.id , books.name_book , books.auteur , books.prix, books.image ,books.id_admin ,genres.genres, 
+        admin.name_admin FROM books
+         inner join admin ON books.id_admin = admin.id
+         inner join genres ON books.id_genres = genres.id
+          WHERE admin.id = $_SESSION[adminId];";
+        $query_run = mysqli_query($conn, $query);
+      if(mysqli_num_rows($query_run) > 0)
+    {
+       foreach($query_run as $books)
+     {
+     ?>
+   <div class="col card me-2 mt-2 " style="width: 15rem;  background-color: rgba(255, 255, 255, 0.700);">
+        <img src="image/books/<?= $books['image']; ?>" style="  height:250px ;" class="card-img-top" alt="">
+            <div class="card-body ">
+                <p class="card-title text-black fw-bolder"><?= $books['name_book']; ?></p>
+                <p class="card-text text-gray-600 fs-5 fw-bolder"><?= $books['genres']; ?></p>
+                <p class="card-text text-green-700 fw-bolder" ><?= $books['prix']; ?> DH</p>
+            </div>
+    </div>
+      <?php
+    }
+  }
+     ?>
+     </div>
+</section>
 
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 </body>
 </html>
+<?php 
+}
+?>

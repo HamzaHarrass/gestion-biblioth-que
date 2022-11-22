@@ -39,7 +39,8 @@ if (isset($_POST['sing'])){
   if(mysqli_num_rows($result)> 0){
       $row = mysqli_fetch_assoc($result);    /* save data as array assosaitive for admin */
       $_SESSION['adminId'] = $row['id'];     /* store id admin in golbal variable (session = super global) */
-        header('location:dashbord.php');
+      $_SESSION['name'] = $row['name_admin'];     /* store id admin in golbal variable (session = super global) */  
+      header('location:dashbord.php');
         die();
     } else {
       header('location:./index.php');

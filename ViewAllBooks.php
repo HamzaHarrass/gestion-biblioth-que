@@ -1,6 +1,9 @@
 <?php
 include('config.php');
 include('script.php');
+if(!isset($_SESSION['adminId'])){
+  header('location: Error.php');
+}else{
 ?>
 
 
@@ -39,7 +42,7 @@ include('script.php');
   </ol>
 </nav>
 
-      <table class="table table-striped table-dark">
+      <table class="table table-striped table-dark table-hover">
   <thead>
     <tr>
       <th scope="col">image</th>
@@ -53,7 +56,7 @@ include('script.php');
   </thead>
   <section>
      <?php 
-        $query = "SELECT books.id , books.name_book , books.auteur , books.prix, books.image ,books.id_admin ,genres.genres, 
+        $query = "SELECT books.id , books.name_book , books.auteur , books.prix, books.image ,books.id_admin ,genres.genres,admin.name_admin, 
         admin.name_admin FROM books
          inner join admin ON books.id_admin = admin.id
          inner join genres ON books.id_genres = genres.id
@@ -84,14 +87,15 @@ include('script.php');
         </tr>
              <?php
          }
-       }  else
-       {
-           echo "<h5> No Record Found </h5>";
-        }
+       } 
       ?>
- 
   </section>
 </table>
+
+
 <script src="https://cdn.lordicon.com/qjzruarw.js"></script>
 </body>
 </html>
+<?php
+}
+?>

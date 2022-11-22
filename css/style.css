@@ -13,10 +13,12 @@ background-attachment: fixed;
 #card{
     border-radius: 30px;
     background-color: rgba(255, 255, 255, 0.63);
+    
 }
 #PragraphSingUp{
     font-size: 60px;
     font-family: 'Times New Roman', Times, serif;
+
 }
 
 /* .carousel-item{

@@ -1,6 +1,9 @@
 <?php
 include('config.php');
-
+include('script.php');
+if(!isset($_SESSION['adminId'])){
+    header('location: Error.php');
+  }else{
 ?>
 <!doctype html>
 <html lang="en">
@@ -24,7 +27,7 @@ include('config.php');
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Student View Details 
+                        <h4>books View Details 
                             <a href="ViewAllBooks.php" class="btn btn-danger float-end">BACK</a>
                         </h4>
                     </div>
@@ -42,23 +45,30 @@ include('config.php');
                                 $book = mysqli_fetch_array($query_run);
                                 ?>
                                 
-                                    <div class="mb-3">
+                                    <div class="mb-3 ">
                                         <p class="">
-                                            <?=$book['nom'];?>
+                                           <img src="image/books/<?=$book['image'];?>" alt="" srcset=""> 
                                         </p>
                                     </div>
+                                
                                     <div class="mb-3">
-                                        <p class="">
+                                        <p class="text-danger fw-bolder">
+                                            <?=$book['name_book'];?>
+                                        </p>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <p class=" fw-bolder text-primary">
                                             <?=$book['auteur'];?>
                                         </p>
                                     </div>
                                     <div class="mb-3">
-                                        <p class="">
+                                        <p class=" fw-bolder">
                                             <?=$book['description'];?>
                                         </p>
                                     </div>
                                     <div class="mb-3">
-                                        <p class="">
+                                        <p class="text-success fw-bolder">
                                             <?=$book['prix'];?> DH
                                         </p>
                                     </div>
@@ -80,3 +90,6 @@ include('config.php');
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+<?php
+  }
+?>
