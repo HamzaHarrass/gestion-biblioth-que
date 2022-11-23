@@ -3,11 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
-<<<<<<< HEAD
--- Généré le : mer. 23 nov. 2022 à 10:25
-=======
--- Généré le : lun. 21 nov. 2022 à 15:12
->>>>>>> 5c59c2619e74fc8191617c9132bd195544636914
+-- Généré le : mer. 23 nov. 2022 à 16:03
 -- Version du serveur : 10.4.25-MariaDB
 -- Version de PHP : 8.1.10
 
@@ -33,16 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
-<<<<<<< HEAD
   `name_admin` varchar(255) DEFAULT NULL,
-=======
-  `name` varchar(255) DEFAULT NULL,
->>>>>>> 5c59c2619e74fc8191617c9132bd195544636914
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-<<<<<<< HEAD
 --
 -- Déchargement des données de la table `admin`
 --
@@ -51,8 +42,6 @@ INSERT INTO `admin` (`id`, `name_admin`, `email`, `password`) VALUES
 (1, 'hamza Harrass', 'h.harrass@library.youcode.ma', 'Hamza@1998'),
 (2, 'mohmed med', 'm.mohmed@library.youcode.ma', 'Hamza@1998');
 
-=======
->>>>>>> 5c59c2619e74fc8191617c9132bd195544636914
 -- --------------------------------------------------------
 
 --
@@ -61,7 +50,6 @@ INSERT INTO `admin` (`id`, `name_admin`, `email`, `password`) VALUES
 
 CREATE TABLE `books` (
   `id` int(11) NOT NULL,
-<<<<<<< HEAD
   `name_book` varchar(255) DEFAULT NULL,
   `auteur` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
@@ -88,15 +76,6 @@ INSERT INTO `books` (`id`, `name_book`, `auteur`, `description`, `id_admin`, `id
 (12, 'Little Girls', ' Ronald Malfi', 'The Bram Stoker Award finalist delivers a chilling horror novel of a childhood revisited, memories resurrected, and fears reborn.\r\n\r\nYears ago, Laurie escaped the troubled house where she was raised. Now she is returning, with her husband and ten-year-old', 2, 4, 50, '41xbjOI02VL.jpg'),
 (13, 'Little Women', ' Louisa May Alcott', 'The beautiful 150th anniversary edition of Louisa May Alcott\'s classic tale of the four March sisters, featuring new illustrations and an introduction by New York Times bestselling author J. Courtney Sullivan\r\n\r\nFor generations, children around the world ', 2, 2, 130, '51hKzIW4dzL._SX322_BO1,204,203,200_.jpg');
 
-=======
-  `name` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `pasword` varchar(255) DEFAULT NULL,
-  `id_admin` int(11) DEFAULT NULL,
-  `id_genres` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
->>>>>>> 5c59c2619e74fc8191617c9132bd195544636914
 -- --------------------------------------------------------
 
 --
@@ -109,7 +88,6 @@ CREATE TABLE `genres` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
-<<<<<<< HEAD
 -- Déchargement des données de la table `genres`
 --
 
@@ -124,8 +102,6 @@ INSERT INTO `genres` (`id`, `genres`) VALUES
 (8, 'History');
 
 --
-=======
->>>>>>> 5c59c2619e74fc8191617c9132bd195544636914
 -- Index pour les tables déchargées
 --
 
@@ -157,31 +133,19 @@ ALTER TABLE `genres`
 -- AUTO_INCREMENT pour la table `admin`
 --
 ALTER TABLE `admin`
-<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-=======
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
->>>>>>> 5c59c2619e74fc8191617c9132bd195544636914
 
 --
 -- AUTO_INCREMENT pour la table `books`
 --
 ALTER TABLE `books`
-<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-=======
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
->>>>>>> 5c59c2619e74fc8191617c9132bd195544636914
 
 --
 -- AUTO_INCREMENT pour la table `genres`
 --
 ALTER TABLE `genres`
-<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-=======
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
->>>>>>> 5c59c2619e74fc8191617c9132bd195544636914
 
 --
 -- Contraintes pour les tables déchargées
@@ -191,13 +155,8 @@ ALTER TABLE `genres`
 -- Contraintes pour la table `books`
 --
 ALTER TABLE `books`
-<<<<<<< HEAD
   ADD CONSTRAINT `books_ibfk_1` FOREIGN KEY (`id_genres`) REFERENCES `genres` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `books_ibfk_2` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-=======
-  ADD CONSTRAINT `books_ibfk_1` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id`),
-  ADD CONSTRAINT `books_ibfk_2` FOREIGN KEY (`id_genres`) REFERENCES `genres` (`id`);
->>>>>>> 5c59c2619e74fc8191617c9132bd195544636914
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
