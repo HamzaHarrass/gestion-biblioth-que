@@ -1,17 +1,31 @@
 body{
-background-image: url('/image/6971567.jpg');
+    /* background-color: red; */
+    background-image: url('../image/6971567.jpg');
 background-size: cover;
-background-attachment: scroll;
+/* background-attachment: scroll; */
 background-repeat: no-repeat;
 background-attachment: fixed;
 }
 #image{
-    background-size: 1400px;
-background-attachment: scroll;
-background-repeat: no-repeat;
-background-attachment: fixed;
+    border-radius: 25px;
+ background-color: rgba(255, 255, 255, 0.562);
+}
+#card{
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.63);
+    
 }
 #PragraphSingUp{
     font-size: 60px;
     font-family: 'Times New Roman', Times, serif;
+
 }
+
+/* .carousel-item{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center ;
+    transition: .7s;
+} */
+
+

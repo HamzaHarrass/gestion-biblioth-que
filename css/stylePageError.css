@@ -1,0 +1,8 @@
+body{
+    /* background-color: red; */
+    background-image: url('../image/b03919115da784abbb052e519a067505.jpg');
+background-size: cover;
+/* background-attachment: scroll; */
+background-repeat: no-repeat;
+background-attachment: fixed;
+}

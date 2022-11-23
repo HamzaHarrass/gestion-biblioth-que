@@ -1,3 +1,9 @@
+<?php
+  include('./config.php');
+  include('./script.php');
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +20,12 @@
     <link href="./css/app.min.css" rel="stylesheet" />
     <link href="./css/vendor.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
-    <link href="/css/style.css" rel="stylesheet" />
+    <!-- BEGIN parsley css-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/guillaumepotier/Parsley.js@2.9.2/doc/assets/docs.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/guillaumepotier/Parsley.js@2.9.2/src/parsley.css" />
+  <!-- END parsley css-->
+  
+    <link href="./css/style.css" rel="stylesheet" />
 
     <!-- ================== END core-css ================== -->
 </head>
@@ -29,44 +40,50 @@
         library </a>
     </nav>
     <section class="">
-      <div class="container ">
+      <div class="container">
         <div class="row d-flex justify-content-center  align-items-center ">
           <div class="col-lg-12 col-xl-11">
-            <div id="image" class="mt-5 card text-black " style="border-radius: 25px; background-image: url('/image/6884840.jpg');">
+            <div id="image" class=" card text-black " style=";">
               <div class="p-md-5 ">
                 <div class="row justify-content-center">
-                  <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                  <div  class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
     
                     <p id="PragraphSingUp" class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
     
-                    <form class="mx-1 mx-md-4">
-    
+                    <form class="mx-1 mx-md-4" method="post" action="script.php" data-parsley-validate>
+                    <?php
+                    if(isset($error)){
+                      foreach($error as $email){
+                        echo '<span class="msg_error">'.$error.'</span>';
+                      };
+                    };
+                      ?>
                       <div class="d-flex flex-row align-items-center mb-4">
                         <div class="form-outline flex-fill mb-0">
-                          <input type="text" id="form3Example1c" class="form-control" required placeholder="Your Name"/>
+                          <input type="text" name="name" id="form3Example1c" class="form-control" required placeholder="Your Name" data-parsley-length="[8, 40]" data-parsley-group="block-2"/>
                         </div>
                       </div>
     
                       <div class="d-flex flex-row align-items-center mb-4">
                         <div class="form-outline flex-fill mb-0">
-                          <input type="email" id="form3Example3c" class="form-control" required placeholder="Your Email"/>
+                          <input type="email" name="email" id="form3Example3c" class="form-control" required placeholder="Your Email" />
                         </div>
                       </div>
     
                       <div class="d-flex flex-row align-items-center mb-4">
                         <div class="form-outline flex-fill mb-0">
-                          <input type="password" id="form3Example4c" class="form-control" required placeholder="Password"/>
+                          <input type="password" name="password" id="password" class="form-control" required placeholder="Password" data-parsley-length="[8, 20]"/>
                         </div>
                       </div>
     
                       <div class="d-flex flex-row align-items-center  mb-4">
                         <div class="form-outline flex-fill  ">
-                          <input type="password" id="form3Example4cd" class="form-control" required placeholder="Repeat your password" />
+                          <input type="password" name="repeat" id="repeatpassword" class="form-control" required placeholder="Repeat your password" data-parsley-equalto="#password" data-parsley-length="[8, 20]"/>
                         </div>
                       </div>
 
                       <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                        <button type="button" class="btn btn-primary btn-lg">Register</button>
+                        <button type="submit" name="register" class="btn btn-primary btn-lg">Register</button>
                       </div>
     
                     </form>
@@ -87,6 +104,9 @@
     </section>
     
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- END jquery js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js" integrity="sha512-eyHL1atYNycXNXZMDndxrDhNAegH2BDWt1TmkXJPoGf1WLlNYt08CSjkqF5lnCRmdm3IrkHid8s2jOUY4NIZVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- END parsley js-->
 </body>
-
 </html>

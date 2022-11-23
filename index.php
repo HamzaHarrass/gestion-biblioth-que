@@ -1,3 +1,8 @@
+<?php 
+    	include('./config.php');
+      include('./script.php');
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +20,10 @@
     <link href="./css/vendor.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />   
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+     <!-- BEGIN parsley css-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/guillaumepotier/Parsley.js@2.9.2/doc/assets/docs.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/guillaumepotier/Parsley.js@2.9.2/src/parsley.css" />
+  <!-- END parsley css-->
     <link href="./css/style.css" rel="stylesheet" />
     <!-- ================== END core-css ================== -->
 </head>
@@ -26,7 +35,7 @@
           <img src="./image/open-book.png" width="50" height="40" class="d-inline-block align-top mt-1 " alt="">
           library </a>
         <form class="form-inline">
-            <a href="./Sing up.html"><button class="btn btn-warning rounded-pill text-white my-2  my-sm-0" type="button"><i class="bi bi-box-arrow-in-right me-2"></i>Sing up</button></a>
+            <a href="./sing up.php"><button class="btn btn-warning rounded-pill text-white my-2  my-sm-0" type="button"><i class="bi bi-box-arrow-in-right me-2"></i>Sing up</button></a>
           </form>
       </nav>
     
@@ -45,15 +54,15 @@
             </div>
       
             <div class="col-lg-6 mb-5 mb-lg-0 my-5">
-              <div class="card bg-glass">
-                <div class="card-body px-4 py-5 px-md-5">
-                  <form>
+              <div id="card" class="card">
+                <div  class="px-4 py-4 px-md-4">
+                  <form  method="post" action="script.php" data-parsley-validate>
                         <div class="">
                           <img src="./image/open-book.png" class="w-25" alt="">
                         </div>
                     <!-- Email input -->
                     <div class="mb-4 text-start">
-                      <input type="email" name="name" id="Email" class="form-control" required placeholder="enter your email" />
+                      <input type="email" name="email" id="Email" class="form-control" required placeholder="exemple@library.youcode.ma" data-parsley-type="email"/>
                     </div>
       
                     <!-- Password input -->
@@ -61,7 +70,7 @@
                       <input type="password" name="password" id="password" class="form-control" required placeholder="enter your password" />
                     </div>
                     <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary btn-block mb-4">
+                    <button type="submit" name="sing" class="btn btn-primary btn-block mb-4">
                       Sign in
                     </button>
                   </form>
@@ -71,5 +80,9 @@
           </div>
         </div>
       </section>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- END jquery js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js" integrity="sha512-eyHL1atYNycXNXZMDndxrDhNAegH2BDWt1TmkXJPoGf1WLlNYt08CSjkqF5lnCRmdm3IrkHid8s2jOUY4NIZVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- END parsley js-->
 </body>
 </html>
