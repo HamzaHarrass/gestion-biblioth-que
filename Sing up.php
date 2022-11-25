@@ -1,6 +1,6 @@
 <?php
   include('./config.php');
-  include('./script.php');
+  include('./script.php');  
 ?>
 
 
@@ -21,8 +21,8 @@
     <link href="./css/vendor.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
     <!-- BEGIN parsley css-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/guillaumepotier/Parsley.js@2.9.2/doc/assets/docs.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/guillaumepotier/Parsley.js@2.9.2/src/parsley.css" />
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/guillaumepotier/Parsley.js@2.9.2/doc/assets/docs.css" /> -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/guillaumepotier/Parsley.js@2.9.2/src/parsley.css" /> -->
   <!-- END parsley css-->
   
     <link href="./css/style.css" rel="stylesheet" />
@@ -52,12 +52,23 @@
     
                     <form class="mx-1 mx-md-4" method="post" action="script.php" data-parsley-validate>
                     <?php
-                    if(isset($error)){
-                      foreach($error as $email){
-                        echo '<span class="msg_error">'.$error.'</span>';
-                      };
-                    };
-                      ?>
+                        if(isset($_SESSION['error'])){
+                          echo'
+                            <div class="alert alert-danger" role="alert">'
+                              .$_SESSION['error'].'
+                            </div>';
+                    }?>
+
+                    <?php
+                      if(isset( $_SESSION['msgerror'])){
+                        echo'
+                        <div class="alert alert-danger" role="alert">'
+                          . $_SESSION['msgerror'].'
+                        </div>';
+                    } 
+                    ?>
+                            
+                    
                       <div class="d-flex flex-row align-items-center mb-4">
                         <div class="form-outline flex-fill mb-0">
                           <input type="text" name="name" id="form3Example1c" class="form-control" required placeholder="Your Name" data-parsley-length="[8, 40]" data-parsley-group="block-2"/>
@@ -107,6 +118,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- END jquery js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js" integrity="sha512-eyHL1atYNycXNXZMDndxrDhNAegH2BDWt1TmkXJPoGf1WLlNYt08CSjkqF5lnCRmdm3IrkHid8s2jOUY4NIZVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- END parsley js-->
+    <!-- END parsley js -->
 </body>
 </html>
+<?php
+session_destroy();

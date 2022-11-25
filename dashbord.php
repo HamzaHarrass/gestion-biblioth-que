@@ -31,16 +31,20 @@ if(!isset($_SESSION['adminId'])){
         <a class="navbar-brandc text-white text-decoration-none ms-4 fs-2 " href="#">
           <img src="./image/open-book.png" width="50" height="40" class="d-inline-block align-top  mt-1 " alt="">
           library </a>
+          <form class="form-inline" method="post" action="script.php">
+            <button class="btn btn-warning rounded-pill text-white my-3 my-sm-0" type="submit" name="log_out"><i class="bi bi-box-arrow-in-right me-2"></i>Sing Out</button>
+          </form>
       </nav>
 
       <nav class="ms-5 d" style="--bs-breadcrumb-divider: '>'; " aria-label="breadcrumb">
   <ol class="breadcrumb ">
     <li class="breadcrumb-item active">Home</li>
     <li class="breadcrumb-item " aria-current="page"><a class="text-white text-decoration-none" href="ViewAllBooks.php">library</a></li>
+    <li class="breadcrumb-item " aria-current="page"><a class="text-white text-decoration-none" href="statistique.php">Statistique</a></li>
   </ol>
 </nav>
 
-             <h1 class="d-flex justify-content-center ">hay ,<?=$_SESSION['name'] ?></h1>          
+             <h1  class="d-flex justify-content-center text-white "><img src="image/icons8-waving-hand-emoji-48.png"  alt="" srcset="">  hay ,<?=$_SESSION['name'] ?></h1>          
 
       <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators ">

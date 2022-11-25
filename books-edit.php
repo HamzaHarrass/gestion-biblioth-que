@@ -1,5 +1,4 @@
 <?php
-// session_start();
 include('config.php');
 include('script.php');
 if(!isset($_SESSION['adminId'])){
@@ -22,12 +21,16 @@ if(!isset($_SESSION['adminId'])){
     <title>book Edit</title>
 </head>
 <body>
-  
-    <div class="container mt-5">
 
-        <?php 
-        // include('message.php'); 
-        ?>
+ <!-- BEGIN #app -->
+ <nav class="navbar " >
+        <a class="navbar-brandc text-white text-decoration-none ms-4 fs-2 " href="#">
+          <img src="./image/open-book.png" width="50" height="40" class="d-inline-block align-top  mt-1 " alt="">
+          library </a>
+      </nav>
+
+
+    <div class="container mt-5">
 
         <div class="row">
             <div class="col-md-12">

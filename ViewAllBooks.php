@@ -39,9 +39,11 @@ if(!isset($_SESSION['adminId'])){
   <ol class="breadcrumb ">
     <li class="breadcrumb-item"><a class="text-white text-decoration-none" href="dashbord.php">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">Library</li>
+    <li class="breadcrumb-item " aria-current="page"><a class="text-white text-decoration-none" href="statistique.php">Statistique</a></li>
+
   </ol>
 </nav>
-
+      <h1  class="d-flex justify-content-center text-white "><img src="image/icons8-waving-hand-emoji-48.png"  alt="" srcset="">  hay ,<?=$_SESSION['name'] ?></h1>          
       <table class="table table-striped table-dark table-hover">
   <thead>
     <tr>

@@ -57,6 +57,13 @@
               <div id="card" class="card">
                 <div  class="px-4 py-4 px-md-4">
                   <form  method="post" action="script.php" data-parsley-validate>
+                  <?php
+                        if(isset( $_SESSION['singInError'] )){
+                          echo'
+                            <div class="alert alert-danger" role="alert">'
+                              . $_SESSION['singInError'] .'
+                            </div>';
+                    }?>
                         <div class="">
                           <img src="./image/open-book.png" class="w-25" alt="">
                         </div>

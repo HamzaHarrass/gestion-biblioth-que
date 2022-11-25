@@ -1,7 +1,7 @@
 <?php
 
  include('config.php');
-
+ include('script.php');
 if(!isset($_SESSION['adminId'])){
   header('location: Error.php');
 }else{
@@ -37,98 +37,41 @@ if(!isset($_SESSION['adminId'])){
     <li class="breadcrumb-item active ">statistique</li>
   </ol>
 </nav>
+<h1  class="d-flex justify-content-center text-white "><img src="image/icons8-waving-hand-emoji-48.png"  alt="" srcset="">  hay ,<?=$_SESSION['name'] ?></h1>          
+<section class="row d-flex gap-3 justify-content-center mt-5">
 
-    <div class=" d-flex justify-content-center">
-    <div class="row">
-      <div class="col-xl-3 col-sm-6 col-12 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex justify-content-between px-md-1">
-              <div class="align-self-center">
-                <lord-icon
+      <div class="col-lg-3 col-md-3 col-10 d-flex justify-content-around align-items-center bg-light rounded">
+        <div>
+        <lord-icon
                    src="https://cdn.lordicon.com/dxoycpzg.json" trigger="morph"
                    colors="primary:#ee6d66,secondary:#646e78,tertiary:#4bb3fd,quaternary:#ebe6ef,quinary:#f9c9c0"
                    style="width:60px;height:60px">
                 </lord-icon>
-              </div>
-              <div class="text-end">
-                <h3>278</h3>
-                <p class="mb-0">Total Books</p>
-              </div>
-            </div>
-          </div>
         </div>
+        <div class="d-flex flex-column ">
+          <h3 class="text-center"><?= $total;?></h3>
+          <p class="text-center">Total Books</p>
+        </div>
+
       </div>
 
+
+      <div class="col-lg-3 col-md-3 col-10 d-flex justify-content-around align-items-center bg-light rounded">
+        <div>
+        <lord-icon
+                   src="https://cdn.lordicon.com/dxoycpzg.json" trigger="morph"
+                   colors="primary:#ee6d66,secondary:#646e78,tertiary:#4bb3fd,quaternary:#ebe6ef,quinary:#f9c9c0"
+                   style="width:60px;height:60px">
+                </lord-icon>
+        </div>
+        <div class="d-flex flex-column ">
+          <h3 class="text-center"><?=  $prix['prixbook']; ?> DH</h3>
+          <p class="text-center">Prix Total</p>
+        </div>
+      </div>
       <!--  -->
 
-      <div class="row">
-      <div class="col-xl-3 col-sm-6 col-12 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex justify-content-between px-md-1">
-              <div class="align-self-center">
-                <lord-icon
-                   src="https://cdn.lordicon.com/dxoycpzg.json" trigger="morph"
-                   colors="primary:#ee6d66,secondary:#646e78,tertiary:#4bb3fd,quaternary:#ebe6ef,quinary:#f9c9c0"
-                   style="width:60px;height:60px">
-                </lord-icon>
-              </div>
-              <div class="text-end">
-                <h3>278</h3>
-                <p class="mb-0">Total Books</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-<!--  -->
-   <div class="row">
-      <div class="col-xl-3 col-sm-6 col-12 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex justify-content-between px-md-1">
-              <div class="align-self-center">
-                <lord-icon
-                   src="https://cdn.lordicon.com/dxoycpzg.json" trigger="morph"
-                   colors="primary:#ee6d66,secondary:#646e78,tertiary:#4bb3fd,quaternary:#ebe6ef,quinary:#f9c9c0"
-                   style="width:60px;height:60px">
-                </lord-icon>
-              </div>
-              <div class="text-end">
-                <h3>278</h3>
-                <p class="mb-0">Total Books</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!--  -->
-
-      <div class="row">
-      <div class="col-xl-3 col-sm-6 col-12 mb-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex justify-content-between px-md-1">
-              <div class="align-self-center">
-                <lord-icon
-                   src="https://cdn.lordicon.com/dxoycpzg.json" trigger="morph"
-                   colors="primary:#ee6d66,secondary:#646e78,tertiary:#4bb3fd,quaternary:#ebe6ef,quinary:#f9c9c0"
-                   style="width:60px;height:60px">
-                </lord-icon>
-              </div>
-              <div class="text-end">
-                <h3>278</h3>
-                <p class="mb-0">Total Books</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+</section>
       <script src="https://cdn.lordicon.com/qjzruarw.js"></script>
 </body>
 </html>

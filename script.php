@@ -1,11 +1,10 @@
-<?php
+<?php 
 session_start();
 include('config.php');
 
 // function sing Up
 
 include('./config.php');
-
 if (isset($_POST['register'])){
     $name = mysqli_real_escape_string($conn,$_POST['name']);
     $email = mysqli_real_escape_string($conn,$_POST['email']);
@@ -15,11 +14,14 @@ if (isset($_POST['register'])){
     $result = mysqli_query($conn , $select);
 
     if(mysqli_num_rows($result) > 0){
-      $error[] = 'user already exist !! ';
-    }else{
+      $_SESSION['msgerror']= 'user already exist !! ';
+      header('location:Sing up.php');
+    }
+    else{
       if($pass != $pasrepeat){
-          $error[] = 'password not matched !!';
-    }else{
+          $_SESSION['error'] = 'password not matched !!';
+          header('location:Sing up.php');
+      }else{
         $insert ="INSERT INTO admin(name_admin,email,password) VALUES ('$name','$email','$pass')";
         mysqli_query($conn , $insert);
         header('location:index.php');
@@ -42,6 +44,7 @@ if (isset($_POST['sing'])){
       $_SESSION['name'] = $row['name_admin'];     /* store id admin in golbal variable (session = super global) */  
       header('location:dashbord.php');
         die();
+        
     } else {
       header('location:./index.php');
     }
@@ -111,5 +114,19 @@ if(isset($_POST['save_book']))
 
 }
 
-// unset($_session['hamza']);
-// session_destroy();
+if(isset($_SESSION['adminId'])){
+
+  $totalBooks = "SELECT * FROM books WHERE books.id_admin =". $_SESSION['adminId'];
+    $total=mysqli_num_rows(mysqli_query($conn,$totalBooks));
+
+  $totalprix="SELECT sum(books.prix) AS prixbook FROM books 
+  WHERE books.id_admin =".$_SESSION['adminId'];
+    $prix=mysqli_fetch_assoc(mysqli_query($conn,$totalprix));
+
+  }    
+
+
+if(isset($_POST['log_out'])){
+  session_destroy();
+  header('Location: dashbord.php');
+}
