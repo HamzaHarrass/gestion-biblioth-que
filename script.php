@@ -3,9 +3,9 @@ session_start();
 include('config.php');
 
 // function sing Up
-
+// sql ingecting
 include('./config.php');
-if (isset($_POST['register'])){
+if (isset($_POST['register'])){  
     $name = mysqli_real_escape_string($conn,$_POST['name']);
     $email = mysqli_real_escape_string($conn,$_POST['email']);
     $pass =  $_POST['password'];
@@ -94,7 +94,7 @@ if(isset($_POST['update_book']))
 
 if(isset($_POST['save_book']))
 {
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
+    $name = mysqli_real_escape_string($conn, $_POST['name']);  
     $auteur = mysqli_real_escape_string($conn, $_POST['auteur']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
     $genre = mysqli_real_escape_string($conn, $_POST['genres']);
@@ -103,12 +103,12 @@ if(isset($_POST['save_book']))
     $id = $_SESSION['adminId'];
 
     $target= "image/books/".$image;   /*  crete la destination de l'image  */
-    $tmp_image =  $_FILES['image']["tmp_name"]; /*  copie le origin nom de l'image et poster dans la destination de l'image */
+    $tmp_image =  $_FILES['image']["tmp_name"]; /*  copie le origin nom de l'image et poster dans
+                                                             la destination de l'image */
    move_uploaded_file($tmp_image,$target);
 
     $query = "INSERT INTO books (name_book,auteur,description,id_genres,prix,image , id_admin) VALUES ('$name','$auteur','$description','$genre','$prix','$image' , '$id')";
-//     var_dump($query);
-// die;
+
     $query_run = mysqli_query($conn, $query);
             header("Location: ViewAllBooks.php");
 
